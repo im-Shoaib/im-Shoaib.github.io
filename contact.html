@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Contact Us — Gurii UK Support</title>
+    <meta name="description" content="Get in touch with Gurii UK — customer support, returns, wholesale inquiries. Call, email, or use our contact form.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --bg: #fafaf9;
+            --surface: #ffffff;
+            --dark: #1a1a1c;
+            --text: #2c2c2e;
+            --text-light: #6e6e73;
+            --accent: #b8924e;
+            --accent-hover: #9a7a3c;
+            --accent-light: #f5efe2;
+            --border: #e8e6e1;
+            --border-light: #f0eee9;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.04);
+            --shadow-md: 0 4px 16px rgba(0,0,0,0.06);
+            --radius-xs: 6px;
+            --radius-sm: 10px;
+            --radius: 14px;
+            --radius-lg: 20px;
+            --font-heading: 'Georgia', 'Times New Roman', serif;
+            --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', system-ui, sans-serif;
+            --transition: 0.25s cubic-bezier(0.4,0,0.2,1);
+            --max-width: 1280px;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; font-size: 16px; -webkit-font-smoothing: antialiased; }
+        body { font-family: var(--font-body); background: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh; display: flex; flex-direction: column; }
+        .header { position: sticky; top: 0; z-index: 1000; background: rgba(255,255,255,0.88); backdrop-filter: blur(18px); border-bottom: 1px solid var(--border-light); height: 72px; display: flex; align-items: center; transition: all var(--transition); }
+        .header.scrolled { background: rgba(255,255,255,0.96); box-shadow: var(--shadow-md); }
+        .header-inner { width: 100%; max-width: var(--max-width); margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+        .logo { font-family: var(--font-heading); font-size: 1.7rem; font-weight: 700; letter-spacing: 2px; color: var(--dark); cursor: pointer; display: flex; align-items: center; gap: 10px; text-decoration: none; }
+        .logo-icon { width: 42px; height: 42px; border-radius: var(--radius-xs); display: flex; align-items: center; justify-content: center; overflow: hidden; flex-shrink: 0; }
+        .logo-icon img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .logo-text { color: var(--dark); text-decoration: none; }
+        .nav { display: flex; gap: 6px; list-style: none; }
+        .nav a { text-decoration: none; color: var(--text); font-weight: 500; font-size: 0.9rem; padding: 10px 18px; border-radius: 50px; transition: all var(--transition); cursor: pointer; letter-spacing: 0.3px; }
+        .nav a:hover, .nav a.active { background: var(--dark); color: #fff; }
+        .header-actions { display: flex; align-items: center; gap: 10px; }
+        .btn-icon { width: 42px; height: 42px; border-radius: 50%; border: 1px solid var(--border); background: var(--surface); cursor: pointer; font-size: 1.2rem; display: flex; align-items: center; justify-content: center; transition: all var(--transition); position: relative; color: var(--text); }
+        .btn-icon:hover { background: var(--dark); color: #fff; border-color: var(--dark); }
+        .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 8px; flex-direction: column; gap: 5px; }
+        .hamburger span { display: block; width: 26px; height: 2.5px; background: var(--dark); border-radius: 3px; transition: 0.3s; }
+        .mobile-nav { display: none; position: fixed; inset: 0; background: rgba(255,255,255,0.98); backdrop-filter: blur(20px); z-index: 999; flex-direction: column; align-items: center; justify-content: center; gap: 8px; padding: 40px; }
+        .mobile-nav.show { display: flex; }
+        .mobile-nav a { text-decoration: none; color: var(--dark); font-size: 1.3rem; font-weight: 600; padding: 14px 28px; border-radius: 50px; }
+        .mobile-nav a.active { background: var(--dark); color: #fff; }
+        .content-page { padding: 50px 24px 60px; max-width: 1000px; margin: 0 auto; flex: 1; }
+        .content-page h1 { font-family: var(--font-heading); font-size: 2.2rem; margin-bottom: 10px; color: var(--dark); }
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin: 40px 0; }
+        .contact-card { background: var(--surface); padding: 24px; border-radius: var(--radius-lg); border: 1px solid var(--border-light); box-shadow: var(--shadow-sm); }
+        .contact-card i { font-size: 2rem; color: var(--accent); margin-bottom: 12px; }
+        .contact-card h3 { font-family: var(--font-heading); margin-bottom: 8px; }
+        .contact-card p, .contact-card a { color: var(--text); text-decoration: none; display: block; margin: 6px 0; }
+        .contact-card a:hover { color: var(--accent); }
+        .contact-form { background: var(--surface); border-radius: var(--radius-lg); padding: 28px; border: 1px solid var(--border-light); }
+        .form-control { width: 100%; padding: 14px 16px; border-radius: var(--radius-xs); border: 1px solid var(--border); font-family: var(--font-body); font-size: 0.9rem; background: #fff; outline: none; margin-bottom: 16px; }
+        .form-control:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(184, 146, 78, 0.08); }
+        .btn-dark { background: var(--dark); color: #fff; border: none; padding: 14px 28px; border-radius: 50px; cursor: pointer; font-weight: 600; transition: all var(--transition); width: 100%; }
+        .btn-dark:hover { background: #000; transform: translateY(-2px); }
+        .map-container { margin: 30px 0; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-md); }
+        .map-container iframe { width: 100%; height: 300px; border: 0; }
+        .footer { background: var(--dark); color: #ccc; padding: 50px 24px 30px; margin-top: auto; }
+        .footer-inner { max-width: var(--max-width); margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 36px; }
+        .footer h4 { color: #fff; font-family: var(--font-heading); margin-bottom: 14px; }
+        .footer a { color: #aaa; font-size: 0.85rem; text-decoration: none; line-height: 1.8; display: block; cursor: pointer; }
+        .footer a:hover { color: #fff; }
+        .whatsapp-float { position: fixed; bottom: 28px; right: 28px; width: 60px; height: 60px; background-color: #25D366; color: white; border-radius: 50%; box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25); display: flex; align-items: center; justify-content: center; z-index: 9999; font-size: 32px; transition: transform 0.25s ease, box-shadow 0.25s ease; text-decoration: none; }
+        .whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 6px 24px rgba(37, 211, 102, 0.45); }
+        .toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--dark); color: #fff; padding: 12px 24px; border-radius: 50px; font-weight: 600; z-index: 3000; opacity: 0; transition: 0.35s; pointer-events: none; white-space: nowrap; }
+        .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+        @media (max-width: 900px) { .nav { display: none; } .hamburger { display: flex; } .contact-grid { grid-template-columns: 1fr; gap: 24px; } .content-page { padding: 30px 16px 40px; } .content-page h1 { font-size: 1.8rem; } .whatsapp-float { bottom: 20px; right: 20px; width: 54px; height: 54px; font-size: 28px; } }
+    </style>
+</head>
+<body>
+    <header class="header" id="header">
+        <div class="header-inner">
+            <a class="logo" href="index.html">
+                <span class="logo-icon"><img src="logo.png" alt="Gurii Logo" onerror="this.style.display='none';this.parentElement.innerHTML='<span style=font-weight:700;font-size:1.4rem;color:#fff;background:var(--dark);width:100%;height:100%;display:flex;align-items:center;justify-content:center;border-radius:6px;>G</span>';"></span>
+                <span class="logo-text">Gurii</span>
+            </a>
+            <nav><ul class="nav">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#shop">Shop</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul></nav>
+            <div class="header-actions">
+                <button class="btn-icon" onclick="window.location.href='index.html#shop'" aria-label="Basket">🛒</button>
+                <button class="hamburger" onclick="toggleMobileNav()" aria-label="Menu"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+    </header>
+    <div class="mobile-nav" id="mobileNav">
+        <button style="position:absolute; top:20px; right:24px; font-size:2rem; background:none; border:none;" onclick="toggleMobileNav()">✕</button>
+        <a href="index.html" onclick="toggleMobileNav();">Home</a>
+        <a href="index.html#shop" onclick="toggleMobileNav();">Shop</a>
+        <a href="about.html" onclick="toggleMobileNav();">About</a>
+    </div>
+
+    <main class="content-page">
+        <h1>Contact Us</h1>
+        <p style="margin-bottom: 24px;">We’re here to help! Whether you have a question about an order, need technical support, or just want to say hello — reach out anytime.</p>
+
+        <div class="contact-grid">
+            <div class="contact-card">
+                <i class="fas fa-phone-alt"></i>
+                <h3>Call Us</h3>
+                <p><a href="tel:+447478059628">+44 7478 059628</a></p>
+                <p>Mon–Fri, 9am – 5pm GMT</p>
+            </div>
+            <div class="contact-card">
+                <i class="fas fa-envelope"></i>
+                <h3>Email Us</h3>
+                <p><a href="mailto:guriltd.official@gmail.com">guriltd.official@gmail.com</a></p>
+                <p>We reply within 24 hours (excluding weekends)</p>
+            </div>
+            <div class="contact-card">
+                <i class="fab fa-whatsapp"></i>
+                <h3>WhatsApp</h3>
+                <p><a href="https://wa.me/447478059628" target="_blank">+44 7478 059628</a></p>
+                <p>Quick questions & order updates</p>
+            </div>
+            <div class="contact-card">
+                <i class="fas fa-map-marker-alt"></i>
+                <h3>Office Address</h3>
+                <p>182-184 High Street North,<br>East Ham, London E6 2JA<br>(Office 17377)</p>
+                <p><em>Online-only retail – no public showroom</em></p>
+            </div>
+        </div>
+
+        <div class="contact-form">
+            <h3 style="font-family: var(--font-heading); margin-bottom: 16px;">Send us a message</h3>
+            <form id="contactForm">
+                <input type="text" class="form-control" placeholder="Full name *" required>
+                <input type="email" class="form-control" placeholder="Email address *" required>
+                <input type="tel" class="form-control" placeholder="Phone number (optional)">
+                <textarea class="form-control" rows="5" placeholder="How can we help? *" required></textarea>
+                <button type="submit" class="btn-dark">Send Message</button>
+            </form>
+        </div>
+
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2483.497392390961!2d0.053424476840337!3d51.52302827180257!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d8a7f2e9c0c9b5%3A0x8f6a5c3e2d1b0a4f!2s182-184%20High%20St%20N%2C%20London%20E6%202JA!5e0!3m2!1sen!2suk!4v1740000000000!5m2!1sen!2suk" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+        <div style="background: var(--accent-light); border-radius: var(--radius); padding: 20px; margin-top: 20px; text-align: center;">
+            <p><strong>⭐ For order-related issues (returns, damaged items, delays)</strong> – please include your order number in the message. This helps us resolve your query twice as fast.</p>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <div><h4>Gurii</h4><p>📞 +44 7478 059628</p><p>info@gurii.store</p><p>Company Number: 17039282</p></div>
+            <div><h4>Shop</h4><a href="index.html#shop">All Products</a><a href="about.html">About Us</a></div>
+            <div><h4>Support</h4><a href="shipping.html">Shipping</a><a href="return.html">Returns</a><a href="contact.html">Contact</a></div>
+            <div><h4>Legal</h4><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></div>
+        </div>
+        <div style="text-align:center; margin-top:20px; font-size:0.8rem; color:#777;">&copy; 2026 Gurii. UK Registered.</div>
+    </footer>
+
+    <a href="https://wa.me/447478059628?text=Hello%20Gurii%2C%20I%27m%20interested%20in%20your%20products%21" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    <div class="toast" id="toast"></div>
+
+    <script>
+        function toggleMobileNav() { document.getElementById('mobileNav').classList.toggle('show'); }
+        window.addEventListener('scroll', () => document.getElementById('header').classList.toggle('scrolled', window.scrollY > 20));
+        function showToast(msg) { const t = document.getElementById('toast'); t.textContent = msg; t.classList.add('show'); clearTimeout(t._t); t._t = setTimeout(() => t.classList.remove('show'), 2500); }
+
+        const form = document.getElementById('contactForm');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            showToast('✅ Message sent! We will reply within 24 hours.');
+            form.reset();
+        });
+    </script>
+</body>
+</html>

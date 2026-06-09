@@ -1112,6 +1112,11 @@
             .carousel-arrow.next {
                 right: 2px;
             }
+
+            #shipping-mobile{
+                display: flex !important;
+                flex-direction: column;
+            }
         }
     </style>
 </head>
@@ -1269,15 +1274,16 @@
         <div class="page" id="page-checkout">
             <section class="section">
                 <h2 style="font-family:var(--font-heading); margin-bottom:24px;">Checkout</h2>
-                <div style="display:grid; grid-template-columns:1fr 360px; gap:40px;">
+                <div id="shipping-mobile" style="display:grid; grid-template-columns:1fr 360px; gap:40px;">
                     <div>
                         <h3>Shipping Details</h3>
                         <input class="form-control" id="chName" placeholder="Full Name *" required style="margin-bottom:10px;">
                         <input class="form-control" id="chEmail" placeholder="Email *" type="email" required style="margin-bottom:10px;">
                         <input class="form-control" id="chAddress" placeholder="Address *" required style="margin-bottom:10px;">
+                        <input class="form-control" id="chAddress" placeholder="Phone *" required style="margin-bottom:10px;">
                         <input class="form-control" id="chCity" placeholder="City *" required style="margin-bottom:10px;">
                         <input class="form-control" id="chPostcode" placeholder="Postcode *" required style="margin-bottom:20px;">
-                        <h3>Card Details (Stripe test)</h3>
+                        <h3>🔒 Secure Stripe Payments</h3>
                         <input class="form-control" placeholder="Card number" style="margin-bottom:10px;">
                         <div style="display:flex; gap:10px;"><input class="form-control" placeholder="MM/YY"><input class="form-control" placeholder="CVC"></div>
                         <button class="btn btn-primary" style="width:100%; margin-top:20px;" onclick="placeOrder()">Place Order</button>
@@ -1327,11 +1333,17 @@
 
     <footer class="footer">
         <div class="footer-inner">
-            <div><h4>Gurii</h4><p>📞 +44 7478 059628</p><p>guriltd.official@gmail.com</p></div>
+            <div><h4>Gurii</h4><p>📞 +44 7478 059628</p><p>info@gurii.store</p><p>Company Number: 17039282</p></div>
             <div><h4>Links</h4><a onclick="navigateTo('shop')">Shop</a><a href="about.html">About</a></div>
             <div><h4>Policies</h4><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></div>
+        <div>
+  <h4>Support</h4>
+  <a href="shipping.html">Shipping</a>
+  <a href="return.html">Returns</a>
+  <a href="contact.html">Contact</a>
+</div>
         </div>
-        <div style="text-align:center; margin-top:20px; font-size:0.8rem; color:#777;">&copy; 2026 Gurii. UK Registered.</div>
+        <div style="text-align:center; margin-top:20px; font-size:0.8rem; color:#777;">&copy; 2026 GURII LTD. Registered in England and Wales.</div>
     </footer>
 
     <script>
